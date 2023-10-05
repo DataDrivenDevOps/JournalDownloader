@@ -8,15 +8,21 @@ It works.
 - It’s an effective way to explain my project
 -  I believe it should be more widely adopted given the technology we have at our disposal.
 
+-- NOTICE -- : I don't have the time to verify the accuracy of the summary. 
+
+This was created with the assistance of OpenAI 3.5-16K with custom parameters via API. Very cheap.
+
 
 # Why did I do this? 
 - I wanted a summary I can reference later so it's easy to understand :)
 
-Without further adieu, I give you the words of Bob.
 
-Sure, let’s break down the code into sections and explain what each part does:
 
-Section 1: Importing Required Modules
+# Without further adieu, I give you the words of Bob.
+
+"Sure, let’s break down the code into sections and explain what each part does":
+
+## Section 1: Importing Required Modules
 
 ```
 const fetch = require('node-fetch');
@@ -27,68 +33,64 @@ const simpleGit = require('simple-git');
 
 This section imports the necessary modules for the script. node-fetch is used for making HTTP requests, fs for file system operations, path for handling file and directory paths, and simple-git for Git commands.
 
-Section 2: Variable Initialization
 
+## Section 2: Variable Initialization
+
+```
 const folderName = 'journals';
 let failedDownloads = 0;
 let successfulDownloads = 0;
 let skippedDownloads = 0;
 const failedJournalNumbers = [];
-Copy
+```
+
 Here, several variables are initialized. folderName is the name of the directory where the downloaded files will be stored. The other variables are counters to keep track of the number of successful, failed, and skipped downloads.
 
-Section 3: Directory Creation
+## Section 3: Directory Creation
 
+```
 if (!fs.existsSync(folderName)) {
   fs.mkdirSync(folderName);
 }
-Copy
+```
+
 This section checks if the directory specified by folderName exists. If it doesn’t, it creates the directory.
 
-I’ll continue with the rest of the code in my next message. Please type “continue” to proceed.
 
+## Section 4: Download Function
 
-
-
-continue
-Generating answers for you…
-
-Generating answers for you…
-
-Section 4: Download Function
-
+```
 async function downloadJournal(journalNumber) {
-  ...
+...
 }
-Copy
+```
+
 This function is responsible for downloading a single journal. It takes a journal number as an argument, constructs the URL for the journal, and checks if the file already exists. If it does, it skips the download. If not, it attempts to download the file and logs the result.
 
-Section 5: Git Push Function
 
-/* Putting on hold for now... 
-function pushToGitHub() {
-  ...
-}
-*/
-Copy
-This function is currently commented out. When active, it adds all changes to Git, commits them with a message, and pushes them to GitHub.
 
-Section 6: Main Function
+## Section 5: Main Function
 
+```
 async function downloadJournals() {
   ...
 }
-Copy
+```
+
 This function loops over a range of journal numbers and calls downloadJournal for each one. It also logs any failed downloads.
 
-Section 7: Script Execution
 
+## Section 6: Script Execution
+
+```
 downloadJournals();
-Copy
+```
+
 This line starts the execution of the script by calling the downloadJournals function.
 
-Section 8: Error Handling
+## Section 7: Error Handling
 
+```
 process.on('uncaughtException', error => {
   ...
 });
@@ -100,85 +102,41 @@ process.on('SIGINT', () => {
 process.on('exit', () => {
   ...
 });
-Copy
+```
 These lines handle different types of errors and interruptions that might occur during the execution of the script. They ensure that any changes are pushed to GitHub before the script exits.
 
-Please type “continue” if you want me to go into more detail about any of these sections.
 
-continue
-Generating answers for you…
 
-Generating answers for you…
+# Focusing on the main function.
 
-Let’s delve deeper into the sections of the code:
 
-Section 4: Download Function
+Sure, let’s break down the async function downloadJournals():
 
-async function downloadJournal(journalNumber) {
-  ...
-}
-Copy
-This function is responsible for downloading a single journal. It takes a journal number as an argument, constructs the URL for the journal, and checks if the file already exists. If it does, it skips the download. If not, it attempts to download the file and logs the result.
-
-The function uses fetch to make a GET request to the URL of the journal. If the response is not OK (status code is not 200), it logs an error message and increments the failedDownloads counter. If there have been three or more failed downloads in a row, it stops the script.
-
-If the response is OK, it creates a write stream to a file in the folderName directory and pipes the response body into it. It then logs a success message and increments the successfulDownloads counter.
-
-Section 5: Git Push Function
-
-/* Putting on hold for now... 
-function pushToGitHub() {
-  ...
-}
-*/
-Copy
-This function is currently commented out. When active, it adds all changes to Git, commits them with a message, and pushes them to GitHub.
-
-The function uses simpleGit to execute Git commands. It first adds all changes in the current directory to Git using git.add('.'). It then commits these changes with a message using git.commit('Downloaded journals'). Finally, it pushes these changes to GitHub using git.push().
-
-Section 6: Main Function
-
+```
 async function downloadJournals() {
-  ...
+  for (let i = 1; i <= 1000; i++) {
+    await downloadJournal(i.toString().padStart(2, '0'));
+  }
+
+  if (failedJournalNumbers.length > 0) {
+    console.error(`Failed to download ${failedJournalNumbers.length} journals: ${failedJournalNumbers.join(', ')}.`);
+  }
+
+  console.log(`Script finished with ${successfulDownloads} successful downloads, ${skippedDownloads} skipped downloads, and ${failedDownloads} failed downloads.`);
+  pushToGitHub();
 }
-Copy
-This function loops over a range of journal numbers and calls downloadJournal for each one. It also logs any failed downloads.
+```
 
-The function uses a for loop to iterate over journal numbers from 1 to 1000. For each iteration, it calls downloadJournal with the current journal number. After all journals have been attempted to be downloaded, it logs how many downloads were successful, skipped, and failed.
+This function is responsible for downloading a series of journals. Here’s what each part does:
 
-Please type “continue” if you want me to go into more detail about any of these sections.
-
-continu
-Generating answers for you…
-
-Generating answers for you…
-
-Section 7: Script Execution
-
-downloadJournals();
-Copy
-This line starts the execution of the script by calling the downloadJournals function. This function will attempt to download journals numbered from 1 to 1000.
-
-Section 8: Error Handling
-
-process.on('uncaughtException', error => {
-  ...
-});
-
-process.on('SIGINT', () => {
-  ...
-});
-
-process.on('exit', () => {
-  ...
-});
-Copy
-These lines handle different types of errors and interruptions that might occur during the execution of the script. They ensure that any changes are pushed to GitHub before the script exits.
-
-uncaughtException: This event is emitted when an uncaught JavaScript exception bubbles all the way back to the event loop. If a listener is added for this event, the default action (which is to print a stack trace and exit) will not occur.
-SIGINT: This event is emitted whenever the process receives a SIGINT signal, which is often sent by pressing Ctrl+C.
-exit: This event is emitted when Node.js empties its event loop and has no additional work to schedule.
-Each of these events has a corresponding handler function that logs an appropriate message, pushes any changes to GitHub, and then exits the process with a specific exit code.
-
-That concludes the breakdown of your code. If you have any more questions or need further clarification, feel free to ask!
+| Code | Definition |
+|------|------------|
+| `for (let i = 1; i <= 1000; i++)` | This is a loop that iterates from 1 to 1000. Each iteration represents a journal number. |
+| `await downloadJournal(i.toString().padStart(2, '0'))` | For each iteration, it calls the downloadJournal function with the current journal number. The await keyword is used to wait for the promise returned by downloadJournal to resolve before continuing to the next iteration. |
+| `if (failedJournalNumbers.length > 0)` | After all journals have been attempted to be downloaded, it checks if there were any failed downloads. |
+| `console.error(...):` | If there were any failed downloads, it logs an error message with the numbers of the journals that failed to download. |
+| `console.log(...)` | Regardless of whether there were any failed downloads, it logs a message indicating how many downloads were successful, skipped, and failed. |
+| `pushToGitHub()` | Finally, it calls the pushToGitHub function to push any changes to GitHub. |
+| The `async` keyword before the function | Means that the function always returns a promise. |
+| The `await` keyword | Can be used to wait for a promise to resolve or reject, and can only be used inside an async function. |
 
