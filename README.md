@@ -3,24 +3,9 @@ I needed to download a series of PDFs located in a static directory, with each f
 
 It works. 
 
-
-# ChatJippity has provided a tutorial for those who are interested. 
-- It’s an effective way to explain my project
--  I believe it should be more widely adopted given the technology we have at our disposal.
-
--- NOTICE -- : I don't have the time to verify the accuracy of the summary. 
-
-This was created with the assistance of OpenAI 3.5-16K with custom parameters via API. Very cheap.
-
-
 # Why did I do this? 
 - I wanted a summary I can reference later so it's easy to understand :)
 
-
-
-# Without further adieu, I give you the words of Bob.
-
-"Sure, let’s break down the code into sections and explain what each part does":
 
 ## Section 1: Importing Required Modules
 
