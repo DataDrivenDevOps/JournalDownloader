@@ -1,14 +1,14 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
-const simpleGit = require('simple-git');
-
-const folderName = 'journals';
 let failedDownloads = 0;
 let successfulDownloads = 0;
 let skippedDownloads = 0;
 const failedJournalNumbers = [];
 
+
+// Make the journals directory if it doesn't already exist
+const folderName = 'journals';
 if (!fs.existsSync(folderName)) {
   fs.mkdirSync(folderName);
 }
